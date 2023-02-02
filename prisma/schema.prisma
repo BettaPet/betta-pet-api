@@ -1,6 +1,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["views"]
 }
 
 datasource db {
@@ -9,25 +10,25 @@ datasource db {
 }
 
 model customer {
-  id              String    @id
-  name            String
-  cpf             String
-  email           String    @unique
-  identityNumber  String
-  addressState    String
-  addressStreet   String
-  addressCountry  String
-  createdAt       DateTime
-  updatedAt       DateTime
+  id              String    @id @db.Uuid
+  name            String    @db.VarChar(255)
+  cpf             String    @db.VarChar(255)
+  email           String    @unique @db.VarChar(255)
+  identityNumber  String    @db.VarChar(255)
+  addressState    String    @db.VarChar(255)
+  addressStreet   String    @db.VarChar(255)
+  addressCountry  String    @db.VarChar(255)
+  createdAt       DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime  @default(now()) @db.Timestamp(6)
 }
 
 model petOffer {
-  id              String    @id
-  name            EOffer
-  description     String
-  price           BigInt
-  createdAt       DateTime
-  updatedAt       DateTime
+  id              String    @id @db.Uuid
+  name            EOffer    
+  description     String    @db.VarChar(255)
+  price           BigInt    @db.BigInt
+  createdAt       DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime  @default(now()) @db.Timestamp(6)
 }
 
 enum EOffer {
