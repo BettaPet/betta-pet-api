@@ -9,7 +9,10 @@ import { CustomerService } from "src/services/customer.service";
     controllers: [CustomerController],
     providers: [
         CustomerService,
-        { provide: ICUSTOMER_REPOSITORY, useClass: CustomerRepository },
+        { 
+            provide: ICUSTOMER_REPOSITORY,
+            useClass: CustomerRepository
+        },
     ]
 })
 

@@ -3,7 +3,7 @@ import { CustomerModule } from './modules/customer.module';
 import { Module } from '@nestjs/common';
 
 @Module({
-  providers: [
+  imports: [
     PrismaModule,
     CustomerModule
   ],
