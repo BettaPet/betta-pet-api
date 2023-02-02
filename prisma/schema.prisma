@@ -1,0 +1,37 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model customer {
+  id              String    @id
+  name            String
+  cpf             String
+  email           String    @unique
+  identityNumber  String
+  addressState    String
+  addressStreet   String
+  addressCountry  String
+  createdAt       DateTime
+  updatedAt       DateTime
+}
+
+model petOffer {
+  id              String    @id
+  name            EOffer
+  description     String
+  price           BigInt
+  createdAt       DateTime
+  updatedAt       DateTime
+}
+
+enum EOffer {
+  BATH
+  TOSA
+  VACCINE
+}
