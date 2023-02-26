@@ -12,21 +12,48 @@ datasource db {
 model customer {
   id              String    @id @db.Uuid
   name            String    @db.VarChar(255)
-  cpf             String    @db.VarChar(255)
+  cpf             String    @unique @db.VarChar(255)
   email           String    @unique @db.VarChar(255)
   identityNumber  String    @db.VarChar(255)
   addressState    String    @db.VarChar(255)
   addressStreet   String    @db.VarChar(255)
   addressCountry  String    @db.VarChar(255)
+  cep             String    @db.VarChar(255)
+  pets            pet[]
+  services        petOffer[]
   createdAt       DateTime  @default(now()) @db.Timestamp(6)
   updatedAt       DateTime  @default(now()) @db.Timestamp(6)
 }
 
+model pet {
+    id              String    @id @db.Uuid
+    name            String    @db.VarChar(255)
+    breed           String    @db.VarChar(255)
+    gender          String    @db.VarChar(255)
+    age             String    @db.VarChar(255)
+    photo           String    @db.VarChar(255)
+    customer        customer  @relation(fields: [customerId], references: [id])
+    customerId      String    @db.Uuid
+    createdAt       DateTime  @default(now()) @db.Timestamp(6)
+    updatedAt       DateTime  @default(now()) @db.Timestamp(6)
+}
+
 model petOffer {
   id              String    @id @db.Uuid
-  name            EOffer    
-  description     String    @db.VarChar(255)
+  description     String    @db.VarChar(3555)
+  customer        customer  @relation(fields: [customerId], references: [id])
+  customerId      String    @db.Uuid
+  products        product[]
+  createdAt       DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model product {
+  id              String    @id @db.Uuid
+  name            String    @db.VarChar(255)
   price           BigInt    @db.BigInt
+  petOffer        petOffer  @relation(fields: [petOfferId], references: [id])
+  petOfferId      String    @db.Uuid
   createdAt       DateTime  @default(now()) @db.Timestamp(6)
   updatedAt       DateTime  @default(now()) @db.Timestamp(6)
 }

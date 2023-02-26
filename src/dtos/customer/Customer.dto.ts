@@ -12,5 +12,7 @@ export default class CustomerDTO {
     addressStreet: string
     
     addressCountry: string
+
+    cep: string
   }
     
