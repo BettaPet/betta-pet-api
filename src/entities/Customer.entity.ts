@@ -9,6 +9,7 @@ export default class Customer {
     addressState: string
     addressStreet: string
     addressCountry: string
+    cep: string
     createdAt: Date
     updatedAt?: Date
     
