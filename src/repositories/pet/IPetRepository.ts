@@ -3,7 +3,7 @@ import Pet from "src/entities/Pet.entity"
 
 export const IPET_REPOSITORY = "IPET_REPOSITORY"
 export interface IPetRepository {
-    create(customer: Pet): Promise<Pet>
+    create(pet: Pet): Promise<Pet>
     updatePetById(id: string, payload: PetDTO): Promise<Pet>
     getAllPets(): Promise<Pet[]>
     getPetById(id: string): Promise<Pet>
