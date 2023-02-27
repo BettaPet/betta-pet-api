@@ -51,7 +51,7 @@ model petOffer {
 model product {
   id              String    @id @db.Uuid
   name            String    @db.VarChar(255)
-  price           BigInt    @db.BigInt
+  price           Float     @db.Real
   petOffer        petOffer  @relation(fields: [petOfferId], references: [id])
   petOfferId      String    @db.Uuid
   createdAt       DateTime  @default(now()) @db.Timestamp(6)
