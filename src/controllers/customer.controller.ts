@@ -29,7 +29,7 @@ export default class CustomerController {
 
   @Get("/:id")
   @HttpCode(200)
-  async getById(@Body() payload: CustomerDTO, @Param("id") id) {
+  async getById(@Param("id") id) {
     return await this.customerService.getById(id);
   }
 

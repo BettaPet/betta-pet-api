@@ -1,8 +1,8 @@
 import CustomerDTO from 'src/dtos/customer/customer.dto';
 import Customer  from 'src/entities/Customer.entity';
-import { PrismaService } from '../configs/prisma.service';
+import { PrismaService } from '../../configs/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { IcustomerRepository } from './interfaces/ICustomerRepository';
+import { IcustomerRepository } from './ICustomerRepository';
 
 @Injectable()
 export class CustomerRepository implements IcustomerRepository{

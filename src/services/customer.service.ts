@@ -1,4 +1,4 @@
-import { IcustomerRepository, ICUSTOMER_REPOSITORY } from './../repositories/interfaces/ICustomerRepository';
+import { IcustomerRepository, ICUSTOMER_REPOSITORY } from '../repositories/customer/ICustomerRepository';
 import { Injectable, Inject } from '@nestjs/common';
 import CustomerDTO from 'src/dtos/customer/customer.dto';
 import Customer from 'src/entities/Customer.entity';
